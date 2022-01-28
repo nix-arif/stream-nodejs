@@ -8,11 +8,15 @@ const advices = [
   "Always borrow money from a pessimist, they won't expect it back",
 ];
 
+let x;
+
 class StreamFromArray extends Readable {
   constructor(array) {
     super();
     this.array = array;
     this.index = 0;
+    // console.log(this);
+    x = this;
   }
 
   _read() {
@@ -29,7 +33,12 @@ class StreamFromArray extends Readable {
 const adviceStream = new StreamFromArray(advices);
 
 adviceStream.on("data", (chunk) => {
-  console.log(chunk);
+  //   console.log("Hello", this);
+  //   console.log(chunk);
 });
 
-adviceStream.on("end", () => console.log("Done!!!"));
+adviceStream.on("end", () => {
+  console.log("Habis");
+});
+
+console.log(adviceStream === x);

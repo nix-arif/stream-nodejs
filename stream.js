@@ -5,6 +5,7 @@ http
   .createServer((req, res) => {
     const readStream = fs.createReadStream(file);
     res.writeHead(200, { "Content-Type": "video/mp4" });
+    console.log(res);
     readStream.pipe(res);
   })
   .listen(3000, () => console.log("Stream - http://localhost:3000"));
