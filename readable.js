@@ -10,7 +10,7 @@ const advices = [
 
 class StreamFromArray extends Readable {
 	constructor(array) {
-		super({ objectMode: true });
+		super({ objectMode: true }); // encoding : 'utf8'
 		this.array = array;
 		this.index = 0;
 	}
