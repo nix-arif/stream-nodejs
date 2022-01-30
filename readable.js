@@ -2,7 +2,7 @@ const { Readable } = require('stream');
 
 const advices = [
 	'No ice for drinks? Use frozen vegetables',
-	"If you feel alone, watch a horror movie before going to bde. You won't feel alone anymore",
+	"If you feel alone, watch a horror movie before going to bed. You won't feel alone anymore",
 	"Don't have sex after chopping jalapenos",
 	"If you can't blind them with brilliance, baffle them with nonsense",
 	"Always borrow money from a pessimist, they won't expect it back",
