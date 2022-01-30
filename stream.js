@@ -1,11 +1,12 @@
-const fs = require("fs");
 const http = require("http");
+const fs = require("fs");
 const file = "./dan.mp4";
+
 http
   .createServer((req, res) => {
-    const readStream = fs.createReadStream(file);
     res.writeHead(200, { "Content-Type": "video/mp4" });
-    console.log(res);
-    readStream.pipe(res);
+    fs.createReadStream(file)
+      .pipe(res)
+      .on("error", () => console.log("Error"));
   })
-  .listen(3000, () => console.log("Stream - http://localhost:3000"));
+  .listen(3000, () => console.log("Server is listening for Stream"));
