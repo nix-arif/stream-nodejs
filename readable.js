@@ -10,7 +10,7 @@ const advices = [
 
 class StreamFromArray extends Readable {
 	constructor(array) {
-		super({ objectMode: true }); // encoding : 'utf8'
+		super(); // encoding : 'utf8' or objectMode : true
 		this.array = array;
 		this.index = 0;
 	}
@@ -18,10 +18,7 @@ class StreamFromArray extends Readable {
 	_read() {
 		if (this.index <= this.array.length) {
 			const chunk = this.array[this.index];
-			this.push({
-				data: chunk,
-				index: this.index,
-			});
+			this.push(chunk);
 			this.index += 1;
 		} else {
 			this.push(null);
